@@ -45,17 +45,17 @@ function onInput(evt) {
   
     // let inputText = evt.currentTarget.value;
     let inputText = refs.inputEl.value.trim() ;
-    
+    if(!inputText){
+      refs.ulEl.innerHTML = '';
+      refs.countryEl.innerHTML = '';
+      return
+  }
 
     evt.preventDefault()
     onFetch(inputText)
       .then(selCont => {
         console.log(selCont);
-        if(!inputText){
-            refs.ulEl.innerHTML = '';
-            refs.countryEl.innerHTML = '';
-            return
-        }
+       
   
         if (selCont.length > 10) {
             
